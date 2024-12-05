@@ -31,6 +31,7 @@
 #include "modplayer/modplayer.h"
 #include "liltracker/liltracker.h"
 #include "ble_gamepad/app.h"
+#include "gameboy/gameboy.h"
 
 #include "icons/demos.h"
 #include "icons/sdcard.h"
@@ -242,7 +243,11 @@ void LauncherApp::selectFile(String path) {
     //lilka::serial_log("FileBrowser : Selected path %s", path.c_str());
     if (lowerCasedPath.endsWith(".rom") || lowerCasedPath.endsWith(".nes")) {
         AppManager::getInstance()->runApp(new NesApp(path));
-    } else if (lowerCasedPath.endsWith(".bin")) {
+    }
+    if (lowerCasedPath.endsWith(".gb")) {
+        AppManager::getInstance()->runApp(new GameBoyApp(path));
+    }
+     else if (lowerCasedPath.endsWith(".bin")) {
 #if LILKA_VERSION < 2
         alert("Помилка", "Ця операція потребує Лілку 2.0");
         return;
