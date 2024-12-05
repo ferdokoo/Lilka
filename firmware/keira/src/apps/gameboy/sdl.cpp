@@ -245,18 +245,7 @@ void gb_sdl_frame(void)
 #include <Arduino.h>
 #include <lilka.h>
 
-// Use hardware SPI (on ESP D4 and D8 as above)
-//Adafruit_ILI9341 tft = Adafruit_ILI9341(_CS, _DC);
-// If using the breakout, change pins as desired
-
-void backlighting(bool state) {
-    // if (!state) {
-    //     digitalWrite(_led, LOW);
-    // }
-    // else {
-    //     digitalWrite(_led, HIGH);
-    // }
-}
+void backlighting(bool state) {}
 
 #define GAMEBOY_HEIGHT 160
 #define GAMEBOY_WIDTH 144
@@ -274,21 +263,16 @@ void SDL_Flip(byte *screen){
   int i,j;
   for(i = 0;i<GAMEBOY_WIDTH;i++){
     for(j = 0;j<GAMEBOY_HEIGHT;j++){
-		buffer[]
         // tft.drawPixel(j, i, color[getColorIndexFromFrameBuffer(j, i)]);
+		// TODO : add draw gameboy buffer in lilka screen
       }
     }
     //memset(pixels,0,GAMEBOY_HEIGHT * GAMEBOY_WIDTH / 4*sizeof(byte));
 }
 
-void gb_sdl_init(void)
-{
+void gb_sdl_init(void){}
 
-}
 int gb_sdl_update(void){
-	//tft.fillScreen(ILI9341_RED);
-    // button_start = !gpio_get_level(GPIO_NUM_14);
-    // button_right = !gpio_get_level(GPIO_NUM_27);
 	return 0;
 }
 unsigned int gb_sdl_get_buttons(void)
